@@ -5,7 +5,7 @@ import os
 
 # Для начала определим настройки запуска
 hostName = "localhost" # Адрес для доступа по сети
-serverPort = 8080 # Порт для доступа по сети
+serverPort = 2020 # Порт для доступа по сети
 
 class MyServer(BaseHTTPRequestHandler):
     """ 
@@ -17,9 +17,8 @@ class MyServer(BaseHTTPRequestHandler):
         self.send_response(200) # Отправка кода ответа
         self.send_header("Content-type", "text/html") # Отправка типа данных, который будет передаваться
         self.end_headers() # Завершение формирования заголовков ответа
-        with open("index.html", "r", encoding="utf-8") as file:
+        with open("contacts.html", "r", encoding="utf-8") as file:
             data = file.read()
-        print(data)
         self.wfile.write(bytes(data, "utf-8"))
 
 
